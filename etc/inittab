@@ -3,9 +3,19 @@
 ::shutdown:/lib/init/rc.shutdown
 ::respawn:runsvdir -P /var/service 'log: ................................................................................................................................................................................................................................................................'
 
+::once:/usr/bin/modprobe panfrost
+::once:/usr/bin/modprobe rockchipdrm
+::once:/usr/bin/modprobe hid_multitouch
+::once:/usr/bin/modprobe panel_simple
+::once:/usr/bin/modprobe gpu_sched
+::once:/usr/bin/modprobe pwm_bl
+::once:/usr/bin/modprobe brcmfmac
+::once:/usr/bin/modprobe cw2015_battery
+::once:/usr/bin/modprobe rockchip_thermal
+
 tty1::respawn:/sbin/getty 38400 tty1
 tty2::respawn:/sbin/getty 38400 tty2
 tty3::respawn:/sbin/getty 38400 tty3
 tty4::respawn:/sbin/getty 38400 tty4
 tty5::respawn:/sbin/getty 38400 tty5
-tty6::respawn:/sbin/getty 38400 tty6
+tty6::respawn:/sbin/getty 1500000 ttyS2
